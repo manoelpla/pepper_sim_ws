@@ -25,7 +25,6 @@ $ echo "export PATH=$PATH:~/pepper_sim_ws/src/.shfiles" >> ~/.bashrc
 $ source ~/.bashrc
 ```
 
-
 **Basic Operation:**
 
 Script options:
