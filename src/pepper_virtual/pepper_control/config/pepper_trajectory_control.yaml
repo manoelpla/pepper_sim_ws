@@ -1,0 +1,125 @@
+pepper:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Controllers ------------------------------------------------
+  # LeftArm_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - LShoulderPitch
+  #     - LShoulderRoll
+  #     - LElbowYaw
+  #     - LElbowRoll
+  #     - LWristYaw
+  # RightArm_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - RShoulderPitch
+  #     - RShoulderRoll
+  #     - RElbowYaw
+  #     - RElbowRoll
+  #     - RWristYaw
+  # Head_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - HeadYaw
+  #     - HeadPitch
+  # Pelvis_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - HipRoll
+  #     - HipPitch
+  #     - KneePitch
+  # LeftHand_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - LHand
+  # RightHand_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints:
+  #     - RHand
+
+  # Effort Controllers ---------------------------------------
+  # WheelFL_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: WheelFL
+  # WheelFR_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: WheelFR
+  # WheelB_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: WheelB
+
+
+# gazebo_ros_control:
+#   pid_gains:
+#     HeadYaw: {p: 1000.0, i: 0.01, d: 10.0}
+#     HeadPitch: {p: 1000.0, i: 0.01, d: 10.0}
+#     HipRoll: {p: 1000.0, i: 0.01, d: 10.0}
+#     HipPitch: {p: 1000.0, i: 0.01, d: 10.0}
+#     KneePitch: {p: 1000.0, i: 0.01, d: 10.0}
+
+#     LShoulderPitch: {p: 1000.0, i: 0.01, d: 10.0}
+#     LShoulderRoll: {p: 1000.0, i: 0.01, d: 10.0}
+#     LElbowYaw: {p: 1000.0, i: 0.01, d: 10.0}
+#     LElbowRoll: {p: 1000.0, i: 0.01, d: 10.0}
+#     LWristYaw: {p: 1000.0, i: 0.01, d: 10.0}
+
+#     RShoulderPitch: {p: 1000.0, i: 0.01, d: 10.0}
+#     RShoulderRoll: {p: 1000.0, i: 0.01, d: 10.0}
+#     RElbowYaw: {p: 1000.0, i: 0.01, d: 10.0}
+#     RElbowRoll: {p: 1000.0, i: 0.01, d: 10.0}
+#     RWristYaw: {p: 1000.0, i: 0.01, d: 10.0}
+
+
+
+  LeftArm_controller:
+    type: velocity_controllers/JointTrajectoryController
+    joints:
+      - LShoulderPitch
+      - LShoulderRoll
+      - LElbowYaw
+      - LElbowRoll
+      - LWristYaw
+    gains:
+      LShoulderPitch: {p: 1000.0, i: 0.01, d: 10.0}
+      LShoulderRoll: {p: 1000.0, i: 0.01, d: 10.0}
+      LElbowYaw: {p: 1000.0, i: 0.01, d: 10.0}
+      LElbowRoll: {p: 1000.0, i: 0.01, d: 10.0}
+      LWristYaw: {p: 1000.0, i: 0.01, d: 10.0}
+  RightArm_controller:
+    type: velocity_controllers/JointTrajectoryController
+    joints:
+      - RShoulderPitch
+      - RShoulderRoll
+      - RElbowYaw
+      - RElbowRoll
+      - RWristYaw
+    gains:
+      RShoulderPitch: {p: 1000.0, i: 0.01, d: 10.0}
+      RShoulderRoll: {p: 1000.0, i: 0.01, d: 10.0}
+      RElbowYaw: {p: 1000.0, i: 0.01, d: 10.0}
+      RElbowRoll: {p: 1000.0, i: 0.01, d: 10.0}
+      RWristYaw: {p: 1000.0, i: 0.01, d: 10.0}
+  Head_controller:
+    type: velocity_controllers/JointTrajectoryController
+    joints:
+      - HeadYaw
+      - HeadPitch
+    gains:
+      HeadYaw: {p: 100000.0, i: 0.01, d: 10.0}
+      HeadPitch: {p: 100000.0, i: 0.01, d: 10.0}
+  Pelvis_controller:
+    type: velocity_controllers/JointTrajectoryController
+    joints:
+      - HipRoll
+      - HipPitch
+      - KneePitch
+    gains:
+      HipRoll: {p: 100000.0, i: 0.01, d: 10.0}
+      HipPitch: {p: 100000.0, i: 0.01, d: 10.0}
+      KneePitch: {p: 100000.0, i: 0.01, d: 10.0}
+
+

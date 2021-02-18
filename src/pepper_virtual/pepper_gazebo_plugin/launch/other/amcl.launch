@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+<!-- MAP SERVER -->
+	<arg name="map_file" default="$(find pepper_gazebo_plugin)/maps/mymap.yaml"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+<!-- AMCL NODE -->
+	<node name="amcl" pkg="amcl" type="amcl" output="screen">
+
+		<remap from="scan" to="/pepper/laser_2"/>
+		<remap from="odom" to="/pepper/odom"/>
+
+		<param name="laser_model_type" value="likelihood_field_prob"/>
+		<param name="use_map_topic" value="true"/>
+
+
+		<param name="odom_frame_id" value="odom"/>
+		<param name="odom_model_type" value="diff-corrected"/>
+		<param name="base_frame_id" value="base_link"/>
+		<param name="global_frame_id" value="map"/>
+		<param name="pub_odometry" value="true" />
+
+		<param name="initial_pose_x" value="0.0"/>
+		<param name="initial_pose_y" value="0.0"/>
+		<param name="initial_pose_yaw" value="0.0"/>
+
+
+	</node>
+
+
+</launch>
